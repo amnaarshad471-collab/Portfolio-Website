@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=PPNeueMachina:wght@300;400;500;700&display=swap");
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-300: #cccccc;
+  --color-blue-600: #4f46e5;
+  --color-purple-600: #7c3aed;
+  --font-family: "PPNeueMachina", sans-serif;
+}
+
+/* SECTION */
+.hero-section {
+  position: relative;
+  width: 100%;
+ min-height: 100vh;
+height: auto;
+padding-top: 200px; /* navbar space fix */
+  background-color: var(--color-black);
+  overflow: hidden;
+  color: var(--color-white);
+  font-family: var(--font-family);
+}
+
+/* PARTICLES */
+#tsparticles {
+  position: absolute;
+  top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  z-index: 0;
+}
+
+/* GRADIENT OVERLAY */
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(6, 3, 12, 0.25), transparent 70%),
+              radial-gradient(circle at 70% 70%, rgba(184, 70, 229, 0.25), transparent 70%);
+  z-index: 1;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* HERO TEXT */
+.hero-content h1 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
+}
+
+/* GRADIENT TEXT */
+.gradient-text {
+  background: linear-gradient(to right, var(--color-purple-600), var(--color-blue-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* HERO PARAGRAPH */
+.hero-content p {
+  color: var(--color-gray-300);
+  font-size: 1.1rem;
+  max-width: 700px;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+}

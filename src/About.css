@@ -1,0 +1,90 @@
+.about-section {
+  position: relative;
+  z-index: 12;
+  height: 80vh;
+  background: linear-gradient(to bottom, #1a0c20, #000000);
+  overflow: hidden;
+  font-family: "PPNeueMachina-PlainLight", sans-serif;
+  cursor: pointer;
+}
+
+/* Common image styles */
+.about-img {
+  position: absolute;
+  width: 100%;
+  will-change: transform;
+  transition: transform 0.8s ease;
+}
+
+.about-img-inner {
+  width: 100%;
+  max-width: 64rem;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Top SVG – comes slightly from bottom initially */
+.about-img-1 {
+  top: 0;
+  transform: translateY(95%); /* moved down a bit to overlap from bottom */
+  z-index: 12;
+}
+
+/* Bottom SVG – comes slightly from top initially */
+.about-img-2 {
+  bottom: 0;
+  transform: translateY(-95%); /* moved up a bit to overlap from top */
+  z-index: 11;
+}
+
+/* Text block */
+.about-text {
+  position: absolute;
+  top: 50%;
+  bottom:20%;;
+  font-size: 17px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  z-index: 20;
+  color: #fff;
+  opacity: 0;
+  transform-origin: center;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Hover effect */
+.about-section:hover .about-img-1 {
+  transform: translateY(-10%);
+}
+
+.about-section:hover .about-img-2 {
+  transform: translateY(10%);
+}
+
+.about-section:hover .about-text {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+  .about-text {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    height: 40vh;
+  }
+
+  .about-text {
+    width: 90%;
+  }
+
+  .about-text p {
+    font-size: 0.875rem;
+  }
+}

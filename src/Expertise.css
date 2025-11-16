@@ -1,0 +1,277 @@
+.expertiseSection {
+  width: 100%;
+  padding-bottom: 5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #231035 0%, #000000 100%);
+  z-index: 10;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionInner {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.heading {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #e6eef8;
+  text-align: left;
+  margin: 0;
+}
+
+.purple {
+  color: #b86ce5;
+}
+
+.gridWrap {
+  width: 100%;
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .gridWrap {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .cardButton {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gridWrap {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cardButton {
+  position: relative;
+  display: block;
+  padding: 7px;
+  background: rgb(4, 7, 29);
+  border-radius: calc(1.68rem);
+  overflow: visible;
+  border: none;
+  cursor: pointer;
+  transition: transform 320ms cubic-bezier(.2,.9,.2,1), box-shadow 320ms;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  width: 600px;
+  height: 200px;
+}
+
+.cardInner {
+  position: relative;
+  border-radius: calc(1.68rem);
+  overflow: hidden;
+  background: rgba(14, 18, 33, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+  box-sizing: border-box;
+  transition: transform 350ms ease, box-shadow 350ms ease;
+  padding: 0.5rem;
+  color: #e6eef8;
+}
+
+.contentWrap {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  box-sizing: border-box;
+}
+
+.icon {
+  width: 4.5rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.textWrap {
+  display: block;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.desc {
+  margin: 0.5rem 0 0;
+  font-weight: 600;
+  color: rgba(242, 244, 247, 0.9);
+  font-size: 0.95rem;
+}
+
+.cardBorderWrap {
+  position: absolute;
+  inset: 0;
+  border-radius: calc(1.68rem);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.borderSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+  opacity: 0.65;
+  filter: blur(0.2px);
+}
+
+/* Fixed Radial Glow */
+.fixedRadial {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.75;
+  background: radial-gradient(circle at 30% 30%, rgba(203,172,249,0.95) 0%, rgba(203,172,249,0.45) 30%, transparent 55%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: blur(14px);
+}
+
+/* Different animations for each card */
+.card1 .fixedRadial {
+  animation: moveClockwise 6s linear infinite;
+}
+
+.card2 .fixedRadial {
+  animation: moveCounterClockwise 6s linear infinite;
+}
+
+.card3 .fixedRadial {
+  animation: moveDiagonal 5s linear infinite;
+}
+
+.card4 .fixedRadial {
+  animation: moveDiagonalReverse 5s linear infinite;
+}
+
+/* Keyframes for animations */
+@keyframes moveClockwise {
+  0% { top:0%; left:0%; transform:translate(0,0); }
+  25% { top:0%; left:100%; transform:translate(-100%,0); }
+  50% { top:100%; left:100%; transform:translate(-100%,-100%); }
+  75% { top:100%; left:0%; transform:translate(0,-100%); }
+  100% { top:0%; left:0%; transform:translate(0,0); }
+}
+
+@keyframes moveCounterClockwise {
+  0% { top:0%; left:0%; transform:translate(0,0); }
+  25% { top:100%; left:0%; transform:translate(0,-100%); }
+  50% { top:100%; left:100%; transform:translate(-100%,-100%); }
+  75% { top:0%; left:100%; transform:translate(-100%,0); }
+  100% { top:0%; left:0%; transform:translate(0,0); }
+}
+
+@keyframes moveDiagonal {
+  0% { top:0%; left:0%; transform:translate(0,0); }
+  50% { top:100%; left:100%; transform:translate(-100%,-100%); }
+  100% { top:0%; left:0%; transform:translate(0,0); }
+}
+
+@keyframes moveDiagonalReverse {
+  0% { top:0%; left:100%; transform:translate(-100%,0); }
+  50% { top:100%; left:0%; transform:translate(0,-100%); }
+  100% { top:0%; left:100%; transform:translate(-100%,0); }
+}
+
+/* Hover Effects */
+.cardButton:hover .cardInner {
+  transform: perspective(900px) rotateX(0.6deg) rotateY(0.9deg) translateY(-6px) scale(1.02);
+  box-shadow:
+    0 12px 30px rgba(4,7,29,0.45),
+    0 2px 8px rgba(0,0,0,0.4);
+}
+
+.cardButton:hover .hoverRadial {
+  opacity: 1;
+  transition: opacity 180ms ease, left 60ms linear, top 60ms linear;
+}
+
+.cardButton:hover .fixedRadial {
+  transform: translate(-30%, -40%) scale(1.08);
+  opacity: 0.9;
+  transition: transform 320ms cubic-bezier(.2,.9,.2,1), opacity 220ms;
+}
+
+.cardButton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: calc(1.68rem);
+  padding: 1px;
+  background: linear-gradient(90deg, rgba(184,70,229,0.12), rgba(30, 82, 146, 0.08), rgba(184,70,229,0.12));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 300ms, transform 500ms;
+}
+
+.cardButton:hover::before {
+  content: "";
+  position: absolute;
+  z-index: 6;
+  left: -60%;
+  top: 0;
+  height: 100%;
+  width: 60%;
+  transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+  animation: sweep 900ms linear forwards;
+  pointer-events: none;
+  border-radius: calc(1.68rem);
+}
+
+@keyframes sweep {
+  from { left: -60%; }
+  to { left: 120%; }
+}
+
+@keyframes shadowPulse {
+  0% { box-shadow: 0 6px 18px rgba(184,70,229,0.05); }
+  50% { box-shadow: 0 10px 26px rgba(184,70,229,0.06); }
+  100% { box-shadow: 0 6px 18px rgba(184,70,229,0.05); }
+}
+
+@media (min-width: 768px) {
+  .cardButton {
+    min-height: 140px;
+  }
+}
+
+.cardButton:focus-visible {
+  box-shadow: 0 0 0 4px rgba(184,70,229,0.12);
+  transform: translateY(-4px) scale(1.01);
+}

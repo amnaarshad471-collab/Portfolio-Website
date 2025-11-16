@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=PPNeueMachina:wght@300;400;500;700&display=swap");
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-300: #cccccc;
+  --font-family: "PPNeueMachina", sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 10;
+  padding: 0 2rem;
+
+  z-index: 9999;     /* 👈 ALWAYS stays above ALL SECTIONS */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Container */
+.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.navbar-logo-img img {
+  height: 50px;
+  width: 180px;
+  object-fit: contain;
+}
+
+/* Links */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-links a {
+  color: var(--color-gray-300);
+  font-family: var(--font-family);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--color-white);
+  transform: scale(1.05);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-links {
+    gap: 1rem;
+  }
+
+  .navbar-links a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-links a {
+    font-size: 0.8rem;
+  }
+}
